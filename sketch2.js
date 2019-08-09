@@ -47,8 +47,8 @@ let easing = 1
 var list = [];
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 function setup(){
-  // createCanvas(screen.width, screen.height);
-  createCanvas(414, 736)
+  createCanvas(screen.width, screen.height);
+//   createCanvas(414, 736)
   if(isMobile){
     var n = 20
     easing = 1
