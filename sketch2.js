@@ -47,7 +47,7 @@ let easing = 1
 var list = [];
 function setup(){
   createCanvas(screen.width, screen.height);
-  for(var i = 0; i<50; i++){
+  for(var i = 0; i<25; i++){
     list.push(new particle(createVector(random(10, width - 10), random(10, height - 10))));
     // list.push(new particle(createVector(random(0.3 * width, 0.7* width), random(0.3 * height, 0.7 * height))));
   }
@@ -78,7 +78,7 @@ function draw(){
   }
   stroke(255, 0, 0);
   strokeWeight(5);
-  ellipse(mouseX, mouseY, 20, 20)
+//   ellipse(mouseX, mouseY, 20, 20)
   point(mouseX, mouseY);
   list.pop()
   // let targetX = mouseX;
