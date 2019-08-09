@@ -45,16 +45,28 @@ let x = 1
 let y = 1
 let easing = 1
 var list = [];
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 function setup(){
-  createCanvas(screen.width, screen.height);
-  for(var i = 0; i<25; i++){
+  // createCanvas(screen.width, screen.height);
+  createCanvas(414, 736)
+  if(isMobile){
+    var n = 20
+    easing = 1
+  }
+  else{
+    var n = 50;
+    easing = 1.5;
+  }
+  for(var i = 0; i<n; i++){
     list.push(new particle(createVector(random(10, width - 10), random(10, height - 10))));
     // list.push(new particle(createVector(random(0.3 * width, 0.7* width), random(0.3 * height, 0.7 * height))));
   }
   frameRate(30)
+//   console.log(width, height)
+//   console.log(n)
 }
 function draw(){
-  background(10);
+  background(10, 10, 10, 100);
   // if(frameCount % 10 == 0){
   //   background(10, 10, 10)
   // }
@@ -70,24 +82,24 @@ function draw(){
         var lineAlpha = map(distance,0,200,255,0);
         stroke(255,255,255,lineAlpha);
         line(list[i].location.x,list[i].location.y,list[j].location.x,list[j].location.y);
-
       }
-
     }
     list[i].update();
   }
   stroke(255, 0, 0);
   strokeWeight(5);
-//   ellipse(mouseX, mouseY, 20, 20)
+  // ellipse(mouseX, mouseY, 20, 20)
   point(mouseX, mouseY);
   list.pop()
   let targetX = mouseX;
   let dx = targetX - x;
   x += dx * easing;
-
   let targetY = mouseY;
   let dy = targetY - y;
-  y += dy * easing;
+  y += dy * easing ;
   fill(255)
-  ellipse(x, y, 20, 20);
+  ellipse(x, y,20, 20);
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
