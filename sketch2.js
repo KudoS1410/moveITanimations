@@ -43,7 +43,7 @@ class particle{
 }
 let x = 1
 let y = 1
-let easing = 1
+let easing = 1.5
 var list = [];
 function setup(){
   createCanvas(screen.width, screen.height);
@@ -81,13 +81,13 @@ function draw(){
 //   ellipse(mouseX, mouseY, 20, 20)
   point(mouseX, mouseY);
   list.pop()
-  // let targetX = mouseX;
-  // let dx = targetX - x;
-  // x += dx * easing;
+  let targetX = mouseX;
+  let dx = targetX - x;
+  x += dx * easing;
 
-  // let targetY = mouseY;
-  // let dy = targetY - y;
-  // y += dy * easing;
-  // fill(255)
-  // ellipse(x, y, 66, 66);
+  let targetY = mouseY;
+  let dy = targetY - y;
+  y += dy * easing;
+  fill(255)
+  ellipse(x, y, 20, 20);
 }
