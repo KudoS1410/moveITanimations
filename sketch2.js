@@ -43,7 +43,7 @@ class particle{
 }
 let x = 1
 let y = 1
-let easing = 1.5
+let easing = 1
 var list = [];
 function setup(){
   createCanvas(screen.width, screen.height);
