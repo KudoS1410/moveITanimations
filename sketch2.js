@@ -61,15 +61,15 @@ function setup(){
     list.push(new particle(createVector(random(10, width - 10), random(10, height - 10))));
     // list.push(new particle(createVector(random(0.3 * width, 0.7* width), random(0.3 * height, 0.7 * height))));
   }
-  frameRate(30)
+  frameRate(50)
 //   console.log(width, height)
 //   console.log(n)
 }
 function draw(){
   background(10, 10, 10, 100);
-  // if(frameCount % 10 == 0){
-  //   background(10, 10, 10)
-  // }
+  if(frameCount % 10 == 0){
+    background(10, 10, 10)
+  }
     list.push(new particle(createVector(mouseX, mouseY)))
     for(var i=0;i<list.length;i++){
     list[i].show();
@@ -80,7 +80,13 @@ function draw(){
 
       if(distance<200){
         var lineAlpha = map(distance,0,200,255,0);
-        stroke(255,255,255,lineAlpha);
+        if(i == list.length -1 || j == list.length-1){
+          stroke(255,0, 0,lineAlpha);
+          strokeWeight(2)
+        }
+        else{
+          stroke(255, 255, 255, lineAlpha)
+        }
         line(list[i].location.x,list[i].location.y,list[j].location.x,list[j].location.y);
       }
     }
