@@ -36,9 +36,11 @@ class particle{
   }
   show(){
     stroke(0, 0, 255);
-    strokeWeight(15);
+    strokeWeight(1);
+    fill(0, 255, 94);
     var z = random(100, 200) / 100;
-    point(this.location.x / z, this.location.y / z);
+//     point(this.location.x / z, this.location.y / z);
+    ellipse(this.location.x, this.location.y, 20 * z, 20 * z);
     this.acceleration = createVector(map(noise(this.location.x, this.location.y), 0, 1, -1, 1), map(noise(this.location.y, this.location.x), 0, 1, -1, 1));
   }
 }
